@@ -1,0 +1,31 @@
+Maincore::create([
+    'odcmain_id' => 2,
+    'xc' => 'SMN-FAK-OTBC-3',
+    'yc1' => 'SMN-FAK-OTBA-1',
+    'yc2' => '',
+    'yc3' => '',
+    'yc4' => '',
+    'olt' => 'GPON00-D4-SMN-3/8/4',
+    'odp_name' => '',
+    'dist' => '',
+    'core' => 'core hijau',
+    'qrcode' => 'tvt43211',
+    'service' => 'node-b SMN123',
+    'info' => '',
+    'activity' => 'ASSURANCE',
+    'user_id' => 1
+
+])
+
+
+
+Odcmain::create([
+    'name' => 'ODC-SMN-FAK',
+    'slug' => 'odc-smn-fak',
+    'location' => '-7.781805, 110.367181',
+    'capacity' => '144',
+    'info' => '',
+    'image' => ''
+])
+
+

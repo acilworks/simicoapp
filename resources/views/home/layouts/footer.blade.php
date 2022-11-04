@@ -22,15 +22,14 @@
         > --}}
 
         <span>
-          <img
-                  src="/img/icon-ta.png"
-                  height="20">
         <a
           href="https://telkomakses.co.id"
           target="_blank"
           class="footer-link me-4"
-          >Telkomakses</a
-        ></span>
+          >Telkomakses
+          <img class="mb-3"
+            src="/img/icon-ta.png"
+            height="20"></a></span>
       </div>
     </div>
   </footer>

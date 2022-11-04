@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <!-- beautify ignore:start -->
 <html
   lang="en"
@@ -21,7 +20,8 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/img/icon-ta.png" />
+    {{-- <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.ico" /> --}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,9 +42,12 @@
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
+    <link rel="stylesheet" href="/vendor/libs/apex-charts/apex-charts.css" />
+
     <!-- Page CSS -->
     <!-- Page -->
     <link rel="stylesheet" href="/vendor/css/pages/page-auth.css" />
+
     <!-- Helpers -->
     <script src="/vendor/js/helpers.js"></script>
 
@@ -77,6 +80,7 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
+    
 
     <!-- Main JS -->
     <script src="/js/main.js"></script>

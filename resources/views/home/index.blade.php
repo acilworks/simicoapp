@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.main')
+@extends('home.layouts.main')
 
 @section('container')
 
@@ -14,7 +14,7 @@
                   Don't forget to pray before doing work. Hope today's work is <span class="fw-bold">easy</span> and <span class="fw-bold">fun!</span>
                 </p>
 
-                <a href="javascript:;" class="btn btn-sm btn-outline-danger">View Badges</a>
+                <a href="/searchodc" class="btn btn-sm btn-outline-dark">Let's Get Started <i class="bx bx-rocket"></i></a>
               </div>
             </div>
             <div class="col-sm-5 text-center text-sm-left">
@@ -34,10 +34,10 @@
       
 
       <!-- Transactions -->
-      <div class="col-md-6 col-lg-4 order-2 mb-4">
+      <div class="col-md-6 col-lg-4 order-1 mb-4">
         <div class="card h-100">
           <div class="card-header d-flex align-items-center justify-content-between">
-            <h5 class="card-title m-0 me-2">Activity History</h5>
+            <h5 class="card-title m-0 me-2">Recent Activity</h5>
             <div class="dropdown">
               <button
                 class="btn p-0"
@@ -50,9 +50,9 @@
                 <i class="bx bx-dots-vertical-rounded"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
-                <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                <a class="dropdown-item" href="javascript:void(0);">Last Days</a>
                 <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-                <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                {{-- <a class="dropdown-item" href="javascript:void(0);">Last Year</a> --}}
               </div>
             </div>
           </div>
@@ -60,46 +60,16 @@
             <ul class="p-0 m-0">
               <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
-                  <img src="/img/icons/unicons/paypal.png" alt="User" class="rounded" />
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <small class="text-muted d-block mb-1">Paypal</small>
-                    <h6 class="mb-0">Send money</h6>
-                  </div>
-                  <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">+82.6</h6>
-                    <span class="text-muted">USD</span>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
                   <img src="/img/icons/unicons/wallet.png" alt="User" class="rounded" />
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
-                    <small class="text-muted d-block mb-1">Wallet</small>
-                    <h6 class="mb-0">Mac'D</h6>
+                    <small class="text-muted d-block mb-1">ODC-KBU-FBC</small>
+                    <h6 class="mb-0">PSB</h6>
                   </div>
                   <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">+270.69</h6>
-                    <span class="text-muted">USD</span>
-                  </div>
-                </div>
-              </li>
-              <li class="d-flex mb-4 pb-1">
-                <div class="avatar flex-shrink-0 me-3">
-                  <img src="/img/icons/unicons/chart.png" alt="User" class="rounded" />
-                </div>
-                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                  <div class="me-2">
-                    <small class="text-muted d-block mb-1">Transfer</small>
-                    <h6 class="mb-0">Refund</h6>
-                  </div>
-                  <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">+637.91</h6>
-                    <span class="text-muted">USD</span>
+                    <h6 class="mb-0">Acil</h6>
+                    <span class="text-muted">20961218</span>
                   </div>
                 </div>
               </li>
@@ -109,42 +79,72 @@
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
-                    <small class="text-muted d-block mb-1">Credit Card</small>
-                    <h6 class="mb-0">Ordered Food</h6>
+                    <small class="text-muted d-block mb-1">ODC-SMN-FAK</small>
+                    <h6 class="mb-0">Validation</h6>
                   </div>
                   <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">-838.71</h6>
-                    <span class="text-muted">USD</span>
+                    <h6 class="mb-0">Acil</h6>
+                    <span class="text-muted">20961218</span>
                   </div>
                 </div>
               </li>
               <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
-                  <img src="/img/icons/unicons/wallet.png" alt="User" class="rounded" />
+                  <img src="/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
-                    <small class="text-muted d-block mb-1">Wallet</small>
-                    <h6 class="mb-0">Starbucks</h6>
+                    <small class="text-muted d-block mb-1">ODC-WNS-FBB</small>
+                    <h6 class="mb-0">Change Core</h6>
                   </div>
                   <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">+203.33</h6>
-                    <span class="text-muted">USD</span>
+                    <h6 class="mb-0">Acil</h6>
+                    <span class="text-muted">20961218</span>
                   </div>
                 </div>
               </li>
-              <li class="d-flex">
+              <li class="d-flex mb-4 pb-1">
                 <div class="avatar flex-shrink-0 me-3">
                   <img src="/img/icons/unicons/cc-warning.png" alt="User" class="rounded" />
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
-                    <small class="text-muted d-block mb-1">Mastercard</small>
-                    <h6 class="mb-0">Ordered Food</h6>
+                    <small class="text-muted d-block mb-1">ODC-BTL-FAB</small>
+                    <h6 class="mb-0">Change Core</h6>
                   </div>
                   <div class="user-progress d-flex align-items-center gap-1">
-                    <h6 class="mb-0">-92.45</h6>
-                    <span class="text-muted">USD</span>
+                    <h6 class="mb-0">Acil</h6>
+                    <span class="text-muted">20961218</span>
+                  </div>
+                </div>
+              </li>
+              <li class="d-flex mb-4 pb-1">
+                <div class="avatar flex-shrink-0 me-3">
+                  <img src="/img/icons/unicons/chart.png" alt="User" class="rounded" />
+                </div>
+                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                  <div class="me-2">
+                    <small class="text-muted d-block mb-1">ODC-WTS-FAA</small>
+                    <h6 class="mb-0">Assurance</h6>
+                  </div>
+                  <div class="user-progress d-flex align-items-center gap-1">
+                    <h6 class="mb-0">Acil</h6>
+                    <span class="text-muted">20961218</span>
+                  </div>
+                </div>
+              </li>
+              <li class="d-flex">
+                <div class="avatar flex-shrink-0 me-3">
+                  <img src="/img/icons/unicons/cc-success.png" alt="User" class="rounded" />
+                </div>
+                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                  <div class="me-2">
+                    <small class="text-muted d-block mb-1">ODC-BBS-FCH</small>
+                    <h6 class="mb-0">Validation</h6>
+                  </div>
+                  <div class="user-progress d-flex align-items-center gap-1">
+                    <h6 class="mb-0">Acil</h6>
+                    <span class="text-muted">20961218</span>
                   </div>
                 </div>
               </li>

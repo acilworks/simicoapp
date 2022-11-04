@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts_login.main')
 
 @section('container')
 
@@ -172,3 +172,4 @@
   </div>
 
   <!-- / Content -->
+  @endsection

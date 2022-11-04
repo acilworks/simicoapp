@@ -15,12 +15,13 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Simico - Dashboard</title>
+    <title>Simico - {{ $title }}</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/img/icon-ta.png" />
+    {{-- <link rel="icon" type="image/x-icon" href="/img/favicon/favicon.ico" /> --}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,13 +59,13 @@
     <div class="layout-wrapper layout-content-navbar">
       <div class="layout-container">
         <!-- Menu -->
-            @include('dashboard.layouts.sidebar')
+            @include('home.layouts.sidebar')
         <!-- / Menu -->
 
         <!-- Layout container -->
         <div class="layout-page">
           <!-- Navbar -->
-            @include('dashboard.layouts.header')
+            @include('home.layouts.header')
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
@@ -75,7 +76,7 @@
             <!-- / Content -->
 
             <!-- Footer -->
-                @include('dashboard.layouts.footer')
+                @include('home.layouts.footer')
             <!-- / Footer -->
 
             <div class="content-backdrop fade"></div>

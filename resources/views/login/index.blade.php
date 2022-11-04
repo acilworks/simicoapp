@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts_login.main')
 
 @section('container')
 
@@ -81,7 +81,7 @@
                   </div>
                 </div> --}}
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                  <button class="btn btn-secondary d-grid w-100" type="submit">Sign in</button>
                 </div>
               </form>
 
@@ -99,3 +99,4 @@
     </div>
 
     <!-- / Content -->
+@endsection
