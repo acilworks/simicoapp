@@ -3,316 +3,141 @@
 @section('container')
 
 <div class="container-xxl flex-grow-1 container-p-y">
-    <div class="row">
-        <div class="col-md-6 col-lg-4 order-0 mb-4">
+  {{-- <h5 class="fw-bold py-3 mb-4">
+    <span class="text-muted fw-light">
+        ODC Main /</span>Add Data</h5> --}}
+
+      {{-- notifikasi form validasi --}}
+      @if ($errors->has('file'))
+      <span class="invalid-feedback" role="alert">
+        <strong>{{ $errors->first('file') }}</strong>
+      </span>
+      @endif
+
+      {{-- notifikasi sukses --}}
+      @if ($sukses = Session::get('sukses'))
+      <div class="alert alert-success alert-block">
+        <button type="button" class="close" data-dismiss="alert">×</button> 
+        <strong>{{ $sukses }}</strong>
+      </div>
+      @endif
+
+      <div class="row">
+      <div class="col-lg-8 mb-4 order-0">
+      {{-- <div class="col-md-6 col-lg-4 order-0"> --}}
+        
+          <div class="col-lg-8 order-0">
             <div class="card">
-              <h5 class="card-header">Data Port</h5>
-              <div class="card-body">
-                <label for="defaultFormControlInput" class="form-label">ODC Name</label>
+              <div class="d-flex align-items-end row">
+                <div class="col-sm-8">
+                  <div class="card-body">
+                    <h5 class="card-title text-secondary fw-bold">Import Excel Port Main</h5>
+                    <p class="mb-4">
+                      Please adjust to the format provided!
+                    </p>
 
-
-
-                      <form action="/searchodc">
-
-                        @if (request('category'))
-                            <input type="hidden" name="category" value="{{ request('category') }}">
-                        @endif
-                        @if (request('author'))
-                            <input type="hidden" name="author" value="{{ request('author') }}">
-                        @endif
-            
-                        <div class="input-group mb-3">
-                        <input type="text" class="form-control border-secondary" name="s1" value="ODC" readonly/>
-                        
-                        <select class="form-select border-secondary" name="s2" required>
-                            <option selected></option>
-                            <option value="PKM">PKM</option>
-                            <option value="SMN">SMN</option>
-                            <option value="KLS">KLS</option>
-                            <option value="GOD">GOD</option>
-                            <option value="KBU">KBU</option>
-                            <option value="KEN">KEN</option>
-                            <option value="BBS">BBS</option>
-                            <option value="KGD">KGD</option>
-                            <option value="BTL">BTL</option>
-                            <option value="WTS">WTS</option>
-                            <option value="WNS">WNS</option>
-                          </select>
-                        
-                        <input type="text" aria-label="Odc name" class="form-control border-secondary text-secondary" name="s3" required/>
-                            {{-- <input type="text" 
-                            class="form-control" 
-                            placeholder="Search.." 
-                            name="search" 
-                            value="{{ request('search') }}"> --}}
-
-                            <button class="btn btn-secondary" type="submit"><i class="bx bx-search"></i></button>
-                          </div>
-                    </form>
-
-                      <div id="defaultFormControlHelp" class="form-text">
-                        Example : ODC-KBU-FBB 
-                      </div>
+                    {{-- <a href="/searchodc" class="btn btn-sm btn-outline-dark">Let's Get Started <i class="bx bx-rocket"></i></a> --}}
+                    <button type="button" class="btn btn-sm btn-outline-dark" data-bs-toggle="modal" data-bs-target="#importExcel">
+                      IMPORT EXCEL <i class="bx bx-list-plus"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-        </div>
+     
 
+            <!-- Import Excel -->
+            <div class="modal fade" id="importExcel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <form method="post" action="/odcmain/import_excel" enctype="multipart/form-data">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+                      <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
         
-    
+                      {{ csrf_field() }}
+        
+                      <label for="formFile" class="form-label">Select excel file</label>
+                      <div class="form-group">
+                        <input class="form-control" type="file" name="file" required="required">
+                      </div>
+        
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary">Import</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
 
+    {{-- Import Excel End --}}
+            
+          </div>
+        </div>
+      </div>
+      
     <!-- Responsive Table -->
-    <div class="col-lg-8 mb-4 order-1">
-    <div class="card">
-        <h5 class="card-header">ODC-KBU-FBB</h5>
-        <div class="table-responsive text-nowrap">
-          <table class="table table-hover table-bordered">
-            {{-- <thead class="text-center">
-                <tr>
-                  <th scope="col" colspan="13"></th>
-                  
-                </tr>
-              </thead> --}}
-              <tbody>
-                <tr>
-                  <td class="bg-dark text-white">OTB-A</td>
-                  <td class="text-center bg-success"><a href="#" class="text-dark"><b>1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center bg-danger"><a href="#" class="text-dark"><b>7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                  <td colspan="14"></td>
-                  
-                </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-B</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                  <td colspan="14"></td>
-                </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-C</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                  <td colspan="14"></td>
-                </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-D</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                  <td colspan="14"></td>
-                </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-E</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                    <td colspan="14"></td>
-                  </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-F</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                    <td colspan="14"></td>
-                  </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-G</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                    <td colspan="14"></td>
-                  </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-H</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                    <td colspan="14"></td>
-                  </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-I</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                    <td colspan="14"></td>
-                  </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-J</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                    <td colspan="14"></td>
-                  </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-K</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-                <tr class="bg-secondary">
-                    <td colspan="14"></td>
-                  </tr>
-                <tr>
-                  <td class="bg-dark text-white">OTB-L</td>
-                  <td class="text-center"><a href="#">1</a></td>
-                  <td class="text-center"><a href="#">2</a></td>
-                  <td class="text-center"><a href="#">3</a></td>
-                  <td class="text-center"><a href="#">4</a></td>
-                  <td class="text-center"><a href="#">5</a></td>
-                  <td class="text-center"><a href="#">6</a></td>
-                  <td class="text-center"><a href="#">7</a></td>
-                  <td class="text-center"><a href="#">8</a></td>
-                  <td class="text-center"><a href="#">9</a></td>
-                  <td class="text-center"><a href="#">10</a></td>
-                  <td class="text-center"><a href="#">11</a></td>
-                  <td class="text-center"><a href="#">12</a></td>
-                  <td class="bg-dark text-white"></td>
-                </tr>
-              </tbody>
-              <tfoot class="text-center">
-                <tr>
-                  <th scope="col" colspan="14">ODC-KBU-FBB</th>
-                  
-                </tr>
-              </tfoot>
+    {{-- <div class="order-1"> --}}
+      <div class="card mb-4">
+        <div class="card-body">
+          {{-- <h5 class="card-header">ODC Data Main</h5> --}}
+          <div class="table-responsive text-nowrap">
+            <table id="data" class="table table-striped table-bordered">
+    {{-- <table class='table table-bordered'> --}}
+            <thead class="table-dark">
+              <tr>
+                <th class="text-light">NO</th>
+                <th class="text-light">ODC NAME</th>
+                <th class="text-light">ID</th>
+                <th class="text-light">STO</th>
+                <th class="text-light">SEGMENT FEEDER OLD</th>
+                <th class="text-light">SEGMENT FEEDER NEW</th>
+                <th class="text-light">LAT</th>
+                <th class="text-light">LONG</th>
+                <th class="text-light">ADDRESS</th>
+                <th class="text-light">KOORDINAT</th>
+                <th class="text-light">INFO</th>
+                <th class="text-light">UPDATED BY</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{-- @php $i=1 @endphp
+              @foreach($odcmain as $o)
+              <tr>
+                <td>{{ $i++ }}</td>
+                <td>{{$o->name}}</td>
+                <td>{{$o->id}}</td>
+                <td>{{$o->sto}}</td>
+                <td>{{$o->segment_feeder_old}}</td>
+                <td>{{$o->segment_feeder_new}}</td>
+                <td>{{$o->lat}}</td>
+                <td>{{$o->long}}</td>
+                <td>{{$o->address}}</td>
+                <td>{{$o->koordinat}}</td>
+                <td>{{$o->info}}</td>
+                <td>{{$o->updated_by}}</td>
+              </tr>
+              @endforeach --}}
+            </tbody>
           </table>
         </div>
-    </div>
       </div>
+      </div>
+    {{-- </div> --}}
+          
+    <!--/ Responsive Table -->
     
-      <!--/ Responsive Table -->
-    </div>
 </div>
+
+
 
   @endsection

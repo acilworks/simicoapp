@@ -25,32 +25,28 @@ class CreateMaincoresTable extends Migration
             $table->string('out1_dist');
             $table->string('out1_odp_name');
             $table->string('out1_core');
-            $table->string('out1_lat');
-            $table->string('out1_long');
+            $table->string('out1_koordinat');
             $table->string('out1_info');
 
             $table->string('out2_port');
             $table->string('out2_dist');
             $table->string('out2_odp_name');
             $table->string('out2_core');
-            $table->string('out2_lat');
-            $table->string('out2_long');
+            $table->string('out2_koordinat');
             $table->string('out2_info');
 
             $table->string('out3_port');
             $table->string('out3_dist');
             $table->string('out3_odp_name');
             $table->string('out3_core');
-            $table->string('out3_lat');
-            $table->string('out3_long');
+            $table->string('out3_koordinat');
             $table->string('out3_info');
 
             $table->string('out4_port');
             $table->string('out4_dist');
             $table->string('out4_odp_name');
             $table->string('out4_core');
-            $table->string('out4_lat');
-            $table->string('out4_long');
+            $table->string('out4_koordinat');
             $table->string('out4_info');
 
             $table->string('gpon_olt');

@@ -36,7 +36,7 @@
 
       <li class="menu-item {{ Request::is('portmain*') ? 'active' : '' }}">
         <a href="/portmain" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-analyse"></i>
+          <i class="menu-icon tf-icons bx bx-git-merge"></i>
           <div data-i18n="Basic">Port Main</div>
         </a>
       </li>

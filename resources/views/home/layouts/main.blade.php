@@ -46,6 +46,12 @@
 
     <!-- Page CSS -->
 
+    <!-- Datatable CSS -->
+    {{-- <link rel="stylesheet" href="/css/bootstrap.css" /> --}}
+    {{-- <link rel="stylesheet" href="/css/jquery-ui.css" /> --}}
+    {{-- <link rel="stylesheet" href="/css/dataTables.jqueryui.min.css" /> --}}
+    <link rel="stylesheet" href="/css/dataTables.bootstrap4.min.css" />
+
     <!-- Helpers -->
     <script src="/vendor/js/helpers.js"></script>
 
@@ -116,10 +122,22 @@
     <!-- Main JS -->
     <script src="/js/main.js"></script>
 
+    <!-- Datatable JS -->
+    <script src="/js/jquery-3.5.1.js"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
+    <script src="/js/dataTables.bootstrap4.min.js"></script>
+
+  
     <!-- Page JS -->
     <script src="/js/dashboards-analytics.js"></script>
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+    </script>
   </body>
 </html>

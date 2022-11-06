@@ -6,13 +6,14 @@ simico app =====================================================================
 2. ODC Main -- odcmains
 		{ id,
 		name(unique), 
-		slug(unique), 
+		slug(unique),
+		sto, 
 		segment_feeder_old, 
 		segment_feeder_new,
 		lat,
 		long,
 		address,
-		longlat,
+		koordinat,
 		image,
 		info,
 		timestamps }
@@ -29,32 +30,28 @@ simico app =====================================================================
 		out1_dist,
 		out1_odp_name,
 		out1_core,
-		out1_lat,
-		out1_long,
+		out1_koordinat,
 		out1_info,
 
 		out2_port,
 		out2_dist,
 		out2_odp_name,
 		out2_core,
-		out2_lat,
-		out2_long,
+		out2_koordinat,
 		out2_info,
 
 		out3_port,
 		out3_dist,
 		out3_odp_name,
 		out3_core,
-		out3_lat,
-		out3_long,
+		out3_koordinat,
 		out3_info,
 		
 		out4_port,
 		out4_dist,
 		out4_odp_name,
 		out4_core,
-		out4_lat,
-		out4_long,
+		out4_koordinat,
 		out4_info,
 		
 		gpon_olt,
@@ -82,6 +79,7 @@ simico app =====================================================================
 
 
 ==========================================================================================
+
 
 
 

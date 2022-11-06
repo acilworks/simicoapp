@@ -45,6 +45,14 @@ Route::get('/home', function()
         'title' => 'Home']);
 })->middleware('auth');
 
-Route::get('/odcmain', [OdcMainController::class, 'index'])->middleware('auth');
 Route::get('/portmain', [PortMainController::class, 'index'])->middleware('auth');
 Route::get('/searchodc', [SearchOdcController::class, 'index'])->middleware('auth');
+
+
+
+Route::get('/odcmain', [OdcMainController::class, 'index'])->middleware('auth');
+Route::post('odcmain', [OdcMainController::class, 'import'])->name('odcmain.import')->middleware('auth');
+
+
+
+

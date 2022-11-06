@@ -16,15 +16,15 @@ class CreateOdcmainsTable extends Migration
         Schema::create('odcmains', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('slug')->unique();
-            $table->string('segment_feeder_old');
-            $table->string('segment_feeder_new');
-            $table->string('lat');
-            $table->string('long');
-            $table->string('address');
-            $table->string('longlat');
+            $table->string('sto');
+            $table->string('segment_feeder_old')->nullable();
+            $table->string('segment_feeder_new')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
+            $table->string('address')->nullable();
+            $table->string('koordinat')->nullable();
             $table->string('image')->nullable();
-            $table->string('info');
+            $table->string('info')->nullable();
             $table->string('updated_by');
             $table->timestamps();
         });
